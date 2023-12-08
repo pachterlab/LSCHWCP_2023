@@ -1,0 +1,17 @@
+replicate,qPCR_viral_load,sample_type
+"['3-Rep1_R1', '3-Rep1_R2', '3-Rep2_R1', '3-Rep2_R2']",253000.0,Saliva
+"['9-Rep1_R1', '9-Rep1_R2', '9-Rep2_R1', '9-Rep2_R2']",5230000.0,Saliva
+"['12-Rep1_R1', '12-Rep1_R2', '12-Rep2_R1', '12-Rep2_R2']",11000000000.0,Nasal swab
+"['15-Rep1_R1', '15-Rep1_R2', '15-Rep2_R1', '15-Rep2_R2']",4640000.0,Throat swab
+"['16-Rep1_R1', '16-Rep1_R2', '16-Rep2_R1', '16-Rep2_R2']",1690000.0,Throat swab
+"['1-Rep1_R1', '1-Rep1_R2', '1-Rep2_R1', '1-Rep2_R2']",0.0,Saliva
+"['2-Rep1_R1', '2-Rep1_R2', '2-Rep2_R1', '2-Rep2_R2']",0.0,Saliva
+"['4-Rep1_R1', '4-Rep1_R2', '4-Rep2_R1', '4-Rep2_R2']",0.0,Saliva
+"['5-Rep1_R1', '5-Rep1_R2', '5-Rep2_R1', '5-Rep2_R2']",0.0,Saliva
+"['6-Rep1_R1', '6-Rep1_R2', '6-Rep2_R1', '6-Rep2_R2']",0.0,Saliva
+"['7-Rep1_R1', '7-Rep1_R2', '7-Rep2_R1', '7-Rep2_R2']",0.0,Saliva
+"['8-Rep1_R1', '8-Rep1_R2']",0.0,Saliva
+"['10-Rep1_R1', '10-Rep1_R2', '10-Rep2_R1', '10-Rep2_R2']",0.0,Saliva
+"['11-Rep1_R1', '11-Rep1_R2', '11-Rep2_R1', '11-Rep2_R2']",0.0,Nasal swab
+"['13-Rep1_R1', '13-Rep1_R2', '13-Rep2_R1', '13-Rep2_R2']",0.0,Nasal swab
+"['14-Rep1_R1', '14-Rep1_R2', '14-Rep2_R1', '14-Rep2_R2']",0.0,Throat swab
