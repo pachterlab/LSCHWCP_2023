@@ -1,0 +1,24 @@
+case_clean	Case	Virus High/Low	Viral load% by RNA ISH
+1	Case 1   	High	81.2
+2	Case 2   	Low	0.5
+3	Case 3   	Low	2
+4	Case 4   	Low	0.009
+5	Case 5   	High	18.5
+6	Case 6	Low	0.02
+7	Case 7	High	6.2
+8	Case 8	High	23.5
+9	Case 9	High	89.7
+10	Case 10	Low	0
+11	Case 11	High	32.5
+12	Case 12	Low	0.009
+13	Case 13	Low	0.009
+14	Case 14	Low	0.3
+15	Case 15	High	14.3
+16	Case 16	High	5.4
+17	Case 17	Low	0.3
+18	Case 18	High	3.9
+19	Case 19	Low	0.01
+20	Case 20	Low	0
+B	case B	Low	0.01
+C	case C	High	71.6
+D	case D	High	29.4
