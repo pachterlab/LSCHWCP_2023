@@ -2,4 +2,4 @@ The bustools_onlist.txt file contains the barcode onlist generated using bustool
 
 The virus folders contain the code for the alignment of the macaque PBMC data to the [optimized PalmDB](https://github.com/pachterlab/LSCHWCP_2023/tree/main/PalmDB) with the different host masking options:
 
-![Masking_overview_v2 (1)](https://github.com/pachterlab/LSCHWCP_2023/assets/56094636/93557a5c-91af-4f0d-8758-d3f36fc107a8)
+![Copy of Masking_overview_v2](https://github.com/pachterlab/LSCHWCP_2023/assets/56094636/2a3a6a54-12dd-49a5-8578-e210fa502e90)
