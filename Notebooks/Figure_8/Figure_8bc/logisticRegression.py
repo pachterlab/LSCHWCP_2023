@@ -8,16 +8,10 @@ import numpy as np
 import pandas as pd
 import pickle
 
-
 import scipy
 from sklearn.linear_model import LogisticRegression
 
 import anndata
-import scanpy as sc
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -29,7 +23,6 @@ parser.add_argument('-scramble','--scramble',default=False,type=bool)
 parser.add_argument('-control','--control',default='nocontrol',type=str)
 parser.add_argument('-matrix','--matrix',default='fullM',type=str)
 
-
 args = parser.parse_args()
 covariates_kind = args.covariates_kind
 regularization = args.regularization
@@ -39,45 +32,38 @@ scramble = args.scramble
 control = args.control
 matrix = args.matrix
 
-
 def nd(array):
     return(np.array(array).flatten())
 
-# load in data
-
-virus_data_path = '../data/virus_meta_host.h5ad'
-host_data_path = '../data_old/macaque_QC_norm_leiden_celltypes.h5ad'
+# Load data
+virus_data_path = '	virus_no_mask.h5ad'
+host_data_path = 'macaque_QC_norm_leiden_celltypes.h5ad'
 
 virus_adata = anndata.read_h5ad(virus_data_path)
 host_adata = anndata.read_h5ad(host_data_path)
 
-# add unique barcode column
+# Add unique barcode column
 host_adata.obs['unique_bc'] = host_adata.obs['sample_barcode'].astype('str') + host_adata.obs['barcode'].astype('str')
-
-print(host_adata.shape)
 virus_adata.obs['unique_bc'] = virus_adata.obs['sample_barcode'].astype('str') + virus_adata.obs.index.astype('str')
 host_adata.obs.index = host_adata.obs['unique_bc'] 
 virus_adata.obs.index = virus_adata.obs['unique_bc'] 
 
-
-# remove non macaque genes
+# Remove non macaque genes
 host_adata = host_adata[host_adata.obs["species"] == "macaca_mulatta" , host_adata.var["species"] == "macaca_mulatta"]
-# remove null cell types
+# Remove null cell types
 virus_adata = virus_adata[virus_adata.obs["celltype"].notnull(), :]
 
-# filter the host anndata matrix to contain only cells in filtered virus adata
+# Filter the host anndata matrix to contain only cells in filtered virus adata
 host_adata = host_adata[host_adata.obs.unique_bc.isin(virus_adata.obs.unique_bc),:]
 
-
-# subset for top half of cells based on raw expression
+# Subset for top half of cells based on raw expression
 if matrix == 'halfM':
     summed_raw_counts  = np.array(host_adata.raw.X.sum(axis=1)).flatten()
     thresh = np.quantile(summed_raw_counts ,0.5)
     host_adata = host_adata[summed_raw_counts>thresh]
     virus_adata = virus_adata[summed_raw_counts>thresh]
 
-
-# filter the host anndata matrix to only contain macaque genes and the viral cells
+# Filter the host anndata matrix to only contain macaque genes and the viral cells
 if genes_kind == 'all': # options: 'all', 'hv', 'threshN' with N being the lowest count sum over all cells to keep a gene
     host_adata = host_adata[host_adata.obs.unique_bc.isin(virus_adata.obs.unique_bc),:]
 elif genes_kind == 'hv':
@@ -86,47 +72,39 @@ elif 'thresh' in genes_kind:
     thresh = int(genes_kind[6:])
     host_adata = host_adata[host_adata.obs.unique_bc.isin(virus_adata.obs.unique_bc),host_adata.X.sum(axis=0)>=thresh]
 
-    
-# only neutrophils
-
+# Train and test using only neutrophils
 if control == 'neutrophils':
-  
     index = virus_adata.obs["celltype"].isin(['Immature neutrophils'])
     virus_adata = virus_adata[index, :]
     host_adata = host_adata[index, :]
     print('USING NEUTROPHIL CONTROL')
-    
-    
+
+# Select test cells such that they are of the same cell types as training cells
 if control == 'equalprop':
-    
     print('USING EQUAL PROPORTIONS')
     
-
-# set of viruses to train models on
-
+# Define viruses to train models on
+# All 'macaque only' and 'shared' viruses
 top_viruses_supp = ['u39566', 'u102540', 'u11150', 'u10', 'u288819','u290519','u10240','u183255','u1001','u100291','u103829','u110641','u181379','u202260','u135858',
 'u101227','u100188','u27694','u34159','u100245','u10015','u100733','u100173','u100196','u100599','u100644','u100296','u100017','u100002','u100012','u100024','u100048','u100302','u100074','u100289','u100026','u100111','u100139','u100154','u100251','u100177','u100215','u100049','u100000','u100001','u100007','u100004','u100011','u100093','u100116','u100019','u100076','u100028','u100153','u100031','u100145','u102324','u134800']
-
+# Viruses shown in manuscript main figures
 top_viruses_top7 = ['u10', 'u102540', 'u11150', 'u202260', 'u39566', 'u134800', 'u102324']
 
 if viruses_kind == 'supp':
     top_viruses = top_viruses_supp
-    print('using supp')
+    print("Using all 'macaque only' and 'shared' viruses")
 elif viruses_kind == 'top7':
     top_viruses = top_viruses_top7
-    print('using top7')
+    print('Using 7 viruses shown in manuscript main figures')
 
-# create smaller adata with only the top viruses
+# create smaller adata containing only the viruses of interest
 virus_adata = virus_adata[:,virus_adata.var.index.isin(top_viruses)]
 clusters = np.array(virus_adata.obs.celltype_clusters.unique())
 
 # order
 top_viruses = virus_adata.var.index.tolist()
 
-
-
 # function for data selection
-
 def extract_training_data_new(host_adata,virus_adata_,
                           covariate_array=None,
                           equal_pos_neg = True,
@@ -146,10 +124,9 @@ def extract_training_data_new(host_adata,virus_adata_,
     X : numpy array of shape sample by genes 
     Y : numpy array shape sample by 1, where 0 or 1 is presence of absence of viruses in the sample 
     '''
-
+                              
     virus_high = virus_adata_[virus_adata_.X.sum(axis=1)>0]
     virus_low = virus_adata_[virus_adata_.X.sum(axis=1)==0]
-   
 
     # equal positive and negative virus samples
     if equal_pos_neg == True:
@@ -185,8 +162,6 @@ def extract_training_data_new(host_adata,virus_adata_,
             virus_high = virus_high[np.random.choice(np.arange(num_high), size=N, replace=False)]
             virus_low = virus_low[np.random.choice(np.arange(num_low), size=N, replace=False)]
 
-
-   
     Y_high = virus_high.X
     X_high = host_adata[host_adata.obs.unique_bc.isin(virus_high.obs.unique_bc),:].X
 
@@ -196,7 +171,6 @@ def extract_training_data_new(host_adata,virus_adata_,
     X = scipy.sparse.vstack((X_high,X_low))
     Y = scipy.sparse.vstack((Y_high,Y_low))
     virus_high_low = virus_high.concatenate((virus_low))
-
     
     # reset index, which changed after concatenation
     virus_high_low.obs.index = virus_high.obs.unique_bc.values.tolist() + virus_low.obs.unique_bc.values.tolist()
@@ -207,13 +181,12 @@ def extract_training_data_new(host_adata,virus_adata_,
 #         covariate_array = one_hot_covariates(virus_high_low,covariate_list,sparse=True)
         X = scipy.sparse.hstack((X,covariate_array_subset))
         
-          
     if return_idx:
         return(np.array(X.todense()),np.array(Y.todense()),virus_high_low.obs.unique_bc)
     else:
         return(np.array(X.todense()),np.array(Y.todense()))
 
-    # one hot encode covariates
+# one hot encode the covariates
 def one_hot_covariates(adata,covariate_list,return_sparse=True):
     '''One hot encodes the covariates in covariate_list.
     '''
@@ -315,14 +288,13 @@ for i,v in enumerate(top_viruses):
     result_dict['test_specificity'][i] = model.score(X_test,Y_test)
     
     result_dict['weights'][i,:] = np.hstack((model.intercept_[:,None], model.coef_)).flatten()
-    
 
 # save results 
 result_dict['viruses'] = top_viruses
 
 if scramble == True:
-    with open(f'120423_{viruses_kind}_viruses_{genes_kind}_genes_{matrix}_cov_{covariates_kind}_{regularization}_{control}_scramble.pickle', 'wb') as handle:
+    with open(f'{viruses_kind}_viruses_{genes_kind}_genes_{matrix}_cov_{covariates_kind}_{regularization}_{control}_scramble.pickle', 'wb') as handle:
         pickle.dump(result_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)    
 else:
-    with open(f'120423_{viruses_kind}_viruses_{genes_kind}_genes_{matrix}_cov_{covariates_kind}_{regularization}_{control}.pickle', 'wb') as handle:
+    with open(f'{viruses_kind}_viruses_{genes_kind}_genes_{matrix}_cov_{covariates_kind}_{regularization}_{control}.pickle', 'wb') as handle:
         pickle.dump(result_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
