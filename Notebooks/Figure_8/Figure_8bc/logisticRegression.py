@@ -36,7 +36,7 @@ def nd(array):
     return(np.array(array).flatten())
 
 # Load data
-virus_data_path = '	virus_no_mask.h5ad'
+virus_data_path = 'virus_no_mask.h5ad'
 host_data_path = 'macaque_QC_norm_leiden_celltypes.h5ad'
 
 virus_adata = anndata.read_h5ad(virus_data_path)
