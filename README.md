@@ -18,5 +18,6 @@ The [precomputed_refs](https://github.com/pachterlab/LSCHWCP_2023/tree/main/prec
 <br>
 </br>
   
-![Figure1 (1)](https://github.com/pachterlab/LSCHWCP_2023/assets/56094636/b468518c-0d91-482e-b4d1-df61547b17d3)
+![Overview_v3 (7)](https://github.com/pachterlab/LSCHWCP_2023/assets/56094636/8f14b364-ad7c-4ad2-9298-f8d0f6ec3bcc)
+
 
