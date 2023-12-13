@@ -23,7 +23,11 @@ A description of kallisto, bustools, and kb-python including tutorials for their
 # 1. Install kb-python (optional: install gget to fetch the host genome and transcriptome)
 pip install kb-python gget
 
-# 2. Create reference index (+ optional masking of the host, here human, genome using the D-list)
+# 2. Download optimized PalmDB reference files
+!wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmdb_rdrp_seqs.fa
+!wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmdb_clustered_t2g.txt
+
+# 3. Create reference index (+ optional masking of the host, here human, genome using the D-list)
 # Single-thread runtime: 1.5 h; Max RAM: 4.4 GB; Size of generated index: 593 MB
 # Without D-list: Single-thread runtime: 3.5 min; Max RAM: 3.9 GB; Size of generated index: 592 MB
 kb ref \
@@ -32,14 +36,14 @@ kb ref \
     -i index.idx --workflow custom \
     palmdb_rdrp_seqs.fa
     
-# 3. Align sequencing reads
+# 4. Align sequencing reads
 # Single-thread runtime: 1.5 min / 1 million sequences; Max RAM: 2.1 GB
 kb count \
-	--aa \
+    --aa \
     -i index.idx -g palmdb_clustered_t2g.txt \
     --parity single \
     -x default \
-    user_data.fastq.gz
+    $USER_DATA.fastq.gz
 ```
   
 ![Overview_v3_noCode](https://github.com/pachterlab/LSCHWCP_2023/assets/56094636/e5cc1c24-3ce3-47cc-893b-93efc5a7329f)
