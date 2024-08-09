@@ -5,4 +5,4 @@ Pre-computed PalmDB reference index with **human** genomic and transcriptomic se
 Pre-computed PalmDB reference index with **mouse** genomic and transcriptomic sequences masked using D-list:  
 [palmdb_mouse_dlist_cdna_dna.idx](https://data.caltech.edu/records/sh33z-hrx98/files/palmdb_mouse_dlist_cdna_dna.idx?download=1)  
 
-You can find the t2g file [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/PalmDB/palmdb_clustered_t2g.txt).
+You can find the t2g file and predicted taxonomies for each virus ID [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/PalmDB).
