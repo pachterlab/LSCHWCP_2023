@@ -14,7 +14,7 @@ Large datasets are stored on Caltech Data and can be accessed under the DOIs [10
 
 The [precomputed_refs](https://github.com/pachterlab/LSCHWCP_2023/tree/main/precomputed_refs) folder contains precomputed reference indices for the detection of viral RNA in sequencing data (through alignment to the [optimized PalmDB](https://github.com/pachterlab/LSCHWCP_2023/tree/main/PalmDB)) and with masked human (or mouse) genome **and** transcriptome.
 
-A description of kallisto, bustools, and kb-python including tutorials for their use can be found here: https://www.biorxiv.org/content/10.1101/2023.11.21.568164v1
+A description of kallisto, bustools, and kb-python including tutorials for their use can be found here: https://www.biorxiv.org/content/10.1101/2023.11.21.568164
 
 <br>
 </br>
