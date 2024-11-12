@@ -6,9 +6,9 @@ Laura Luebbert, Delaney K Sullivan, Maria Carilli, Kristján Eldjárn Hjörleifs
 ```
 The preprint is posted on the bioRxiv: [https://www.biorxiv.org/content/10.1101/2023.12.11.571168](https://www.biorxiv.org/content/10.1101/2023.12.11.571168)
 
-**General tutorials with example data can be found on the [kallisto bustools](https://kallisto.readthedocs.io/en/latest/) website:**  
-- [Detecting viral sequences in bulk RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_bulk.html)  
-- [Detecting viral sequences in single-cell RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_sc.html)
+> **General tutorials with example data can be found on the [kallisto bustools](https://kallisto.readthedocs.io/en/latest/) website:**  
+> - [Detecting viral sequences in bulk RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_bulk.html)  
+> - [Detecting viral sequences in single-cell RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_sc.html)
 
 The [Notebooks](https://github.com/pachterlab/LSCHWCP_2023/tree/main/Notebooks) folder contains code to perform all analyses that were used for the preprint, starting with pre-processing of the raw data all the way to final figure generation. The notebooks are easily and readily executable via Google Colaboratory with a link directly to the site from each notebook page. 
 
