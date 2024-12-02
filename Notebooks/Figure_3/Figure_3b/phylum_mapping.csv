@@ -1,0 +1,5 @@
+mapping,Pisuviricota,Negarnaviricota,Kitrinoviricota,Duplornaviricota,.,Lenarviricota,Nucleocytoviricota,Peploviricota,Artverviricota,Uroviricota
+correct,55643,13516,30777,6661,98115,82429,2,2,2,3
+incorrect,1,2,3,1,1,2,0,0,0,0
+not_aligned,379,766,4517,38,195,2371,0,0,0,0
+multimapped,81,13,52,12,932,45,0,0,0,0

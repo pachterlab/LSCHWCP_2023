@@ -1,0 +1,5 @@
+mapping,Nidovirales,Mononegavirales,Amarillovirales,Hepelivirales,Reovirales,Picornavirales,Articulavirales,Tolivirales,Sobelivirales,Patatavirales,Nodamuvirales,Bunyavirales,.,Martellivirales,Cryppavirales,Tymovirales,Durnavirales,Ghabrivirales,Imitervirales,Wolframvirales,Stellavirales,Ourlivirales,Levivirales,Herpesvirales,Mindivirales,Ortervirales,Caudovirales,Goujianvirales,Jingchuvirales,Serpentovirales
+correct,1469,3153,7450,515,1503,15245,5762,6487,861,2528,1329,2717,143521,3188,11199,5644,20129,3857,1,2137,2034,10448,35460,2,20,1,2,158,332,1
+incorrect,0,0,1,0,0,0,2,0,0,0,0,1,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+not_aligned,116,42,4357,28,27,142,701,52,9,33,2,17,407,37,2141,31,38,9,0,5,14,7,49,0,0,0,0,0,2,0
+multimapped,3,7,3,0,4,23,1,31,0,0,2,1,1017,1,20,1,11,2,0,2,0,0,5,0,1,0,0,0,0,0

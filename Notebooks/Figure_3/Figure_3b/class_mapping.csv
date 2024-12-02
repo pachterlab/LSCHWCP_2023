@@ -1,0 +1,5 @@
+mapping,Pisoniviricetes,Monjiviricetes,Flasuviricetes,Alsuviricetes,Resentoviricetes,Insthoviricetes,Tolucaviricetes,Stelpaviricetes,Magsaviricetes,Ellioviricetes,.,Howeltoviricetes,Duplopiviricetes,Chrymotiviricetes,Megaviricetes,Amabiliviricetes,Miaviricetes,Allassoviricetes,Herviviricetes,Vidaverviricetes,Revtraviricetes,Caudoviricetes,Yunchangviricetes,Milneviricetes
+correct,23179,4063,7521,10662,1555,5832,8409,4803,2423,3166,107740,16639,21978,4708,1,5891,11869,46523,2,22,1,2,161,3
+incorrect,0,0,1,0,0,2,1,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0
+not_aligned,278,46,4357,101,27,701,54,47,2,18,202,2290,54,11,0,12,9,57,0,0,0,0,0,0
+multimapped,48,7,3,3,4,1,39,3,2,2,955,26,21,6,0,2,1,11,0,1,0,0,0,0
