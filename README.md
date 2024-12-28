@@ -38,6 +38,7 @@ pip install kb-python gget
 # Without D-list: Single-thread runtime: 3.5 min; Max RAM: 3.9 GB; Size of generated index: 592 MB
 kb ref \
     --aa \
+    -k 55 \
     --d-list $(gget ref --ftp -w dna homo_sapiens) \
     -i index.idx --workflow custom \
     palmdb_rdrp_seqs.fa
@@ -46,6 +47,7 @@ kb ref \
 # Single-thread runtime: 1.5 min / 1 million sequences; Max RAM: 2.1 GB
 kb count \
     --aa \
+    -k 55 \
     -i index.idx -g palmdb_clustered_t2g.txt \
     --parity single \
     -x default \
