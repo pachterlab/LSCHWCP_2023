@@ -10,7 +10,7 @@ The preprint is posted on the bioRxiv: [https://www.biorxiv.org/content/10.1101/
 > - [Detecting viral sequences in bulk RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_bulk.html)  
 > - [Detecting viral sequences in single-cell RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_sc.html)
 
-When interpreting the presence of RdRP-like sequences / virus IDs, keep in mind that there will likely be many RdRP-like sequences introduced by contamination of laboratory reagents. A (non-comprehensive) list of virus IDs observed in blank sequencing data is available [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/viruses_in_blank_reagents/total_raw_count_per_virus_id_in_laboratory_reagents.csv).  
+When interpreting the presence of RdRP-like sequences / virus IDs, keep in mind that there will likely be many RdRP-like sequences introduced by contamination of laboratory reagents. A (non-comprehensive) list of **virus IDs observed in blank sequencing data** is available [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/viruses_in_blank_reagents/total_raw_count_per_virus_id_in_laboratory_reagents.csv).  
 
 The [Notebooks](https://github.com/pachterlab/LSCHWCP_2023/tree/main/Notebooks) folder contains code to perform all analyses that were used for the preprint, starting with pre-processing of the raw data all the way to final figure generation. The notebooks are easily and readily executable via Google Colaboratory with a link directly to the site from each notebook page. 
 
