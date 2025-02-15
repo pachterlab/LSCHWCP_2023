@@ -14,7 +14,7 @@ When interpreting the presence of RdRP-like sequences / virus IDs, keep in mind 
 
 The [Notebooks](https://github.com/pachterlab/LSCHWCP_2023/tree/main/Notebooks) folder contains code to perform all analyses that were used for the preprint, starting with pre-processing of the raw data all the way to final figure generation. The notebooks are easily and readily executable via Google Colaboratory with a link directly to the site from each notebook page. 
 
-Large datasets are stored on Caltech Data and can be accessed under the DOIs [10.22002/krqmp-5hy81](https://data.caltech.edu/records/krqmp-5hy81) and [10.22002/k7xqw-88d74](https://data.caltech.edu/records/k7xqw-88d74).
+Large intermediary files that are generated/used in these notebooks are stored on Caltech Data and can be accessed under the DOIs [10.22002/krqmp-5hy81](https://data.caltech.edu/records/krqmp-5hy81) and [10.22002/k7xqw-88d74](https://data.caltech.edu/records/k7xqw-88d74).
 
 [Click here](https://htmlpreview.github.io/?https://github.com/pachterlab/LSCHWCP_2023/blob/main/krona_plot.html) to view the interactive Krona plot showing all viruses expressed above the QC threshold in macaque cells that passed quality control, broken down by animal, timepoint, taxonomy, and fraction of positive cells occupied by each virus. [Code to reproduce the Krona plot](https://github.com/pachterlab/LSCHWCP_2023/tree/main/Notebooks/krona_plot)
 
