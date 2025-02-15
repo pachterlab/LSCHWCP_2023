@@ -20,7 +20,7 @@ Large intermediary files that are generated/used in these notebooks are stored o
 
 The [precomputed_refs](https://github.com/pachterlab/LSCHWCP_2023/tree/main/precomputed_refs) folder contains precomputed reference indices for the detection of viral RNA in sequencing data (through alignment to the [optimized PalmDB](https://github.com/pachterlab/LSCHWCP_2023/tree/main/PalmDB)) and with masked human (or mouse) genome **and** transcriptome.
 
-A description of kallisto, bustools, and kb-python including tutorials for their use can be found here: https://www.biorxiv.org/content/10.1101/2023.11.21.568164
+A description of kallisto, bustools, and kb-python including tutorials for their use can be found here: [https://www.nature.com/articles/s41596-024-01057-0](https://www.nature.com/articles/s41596-024-01057-0)
 
 <br>
 </br>
