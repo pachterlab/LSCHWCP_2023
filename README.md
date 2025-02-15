@@ -39,7 +39,7 @@ pip install kb-python gget
 kb ref \
     --aa \
     -k 55 \
-    --d-list $(gget ref --ftp -w dna homo_sapiens) \
+    --d-list $(gget ref --ftp -w dna,cdna homo_sapiens) \
     -i index.idx --workflow custom \
     palmdb_rdrp_seqs.fa
     
