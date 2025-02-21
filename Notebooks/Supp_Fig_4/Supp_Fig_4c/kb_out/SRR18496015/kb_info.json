@@ -1,0 +1,38 @@
+{
+    "workdir": "/Users/lluebber/Downloads",
+    "version": "0.29.1",
+    "kallisto": {
+        "path": "/Users/lluebber/Downloads/kallisto/build/src/kallisto",
+        "version": "0.50.0"
+    },
+    "bustools": {
+        "path": "/opt/anaconda3/lib/python3.12/site-packages/kb_python/bins/darwin/m1/bustools/bustools",
+        "version": "0.44.1"
+    },
+    "start_time": "2025-02-20T13:27:44.511982",
+    "end_time": "2025-02-20T14:47:47.884188",
+    "elapsed": 4803.372206,
+    "call": "/opt/anaconda3/bin/kb count --aa --h5ad --kallisto kallisto/build/src/kallisto -t 11 -i virus_index.idx -g palmdb_clustered_t2g.txt -x SPLIT-Seq -r r1_RT_replace.txt -w r1r2r3.txt -o palmdb/SRR18496015/ SRR18496015_1.fastq.gz SRR18496015_2.fastq.gz",
+    "commands": [
+        "kallisto bus -i virus_index.idx -o palmdb/SRR18496015/ -x SPLIT-Seq -t 11 --aa SRR18496015_1.fastq.gz SRR18496015_2.fastq.gz",
+        "bustools sort -o palmdb/SRR18496015/tmp/output.s.bus -T palmdb/SRR18496015/tmp -t 11 -m 2G palmdb/SRR18496015/output.bus",
+        "bustools inspect -o palmdb/SRR18496015/inspect.json -w r1r2r3.txt palmdb/SRR18496015/tmp/output.s.bus",
+        "bustools correct -o palmdb/SRR18496015/tmp/output.s.c.bus -w r1r2r3.txt palmdb/SRR18496015/tmp/output.s.bus",
+        "bustools sort -o palmdb/SRR18496015/output.unfiltered.bus -T palmdb/SRR18496015/tmp -t 11 -m 2G palmdb/SRR18496015/tmp/output.s.c.bus",
+        "bustools count -o palmdb/SRR18496015/counts_unfiltered/cells_x_genes -g palmdb_clustered_t2g.txt -e palmdb/SRR18496015/matrix.ec -t palmdb/SRR18496015/transcripts.txt --genecounts --umi-gene palmdb/SRR18496015/output.unfiltered.bus",
+        "bustools correct -o palmdb/SRR18496015/tmp/output.unfiltered.c.bus -w r1_RT_replace.txt palmdb/SRR18496015/output.unfiltered.bus --replace",
+        "bustools sort -o palmdb/SRR18496015/output_modified.unfiltered.bus -T palmdb/SRR18496015/tmp -t 11 -m 2G palmdb/SRR18496015/tmp/output.unfiltered.c.bus",
+        "bustools count -o palmdb/SRR18496015/counts_unfiltered_modified/cells_x_genes -g palmdb_clustered_t2g.txt -e palmdb/SRR18496015/matrix.ec -t palmdb/SRR18496015/transcripts.txt --genecounts --umi-gene palmdb/SRR18496015/output_modified.unfiltered.bus"
+    ],
+    "runtimes": [
+        4788.820350885391,
+        2.3785810470581055,
+        1.12687087059021,
+        1.1237599849700928,
+        1.5561630725860596,
+        1.4452111721038818,
+        1.1240310668945312,
+        1.6662273406982422,
+        1.4255337715148926
+    ]
+}

@@ -1,0 +1,14 @@
+{
+	"n_targets": 296561,
+	"n_bootstraps": 0,
+	"n_processed": 309585531,
+	"n_pseudoaligned": 1657992,
+	"n_unique": 1517660,
+	"p_pseudoaligned": 0.5,
+	"p_unique": 0.5,
+	"kallisto_version": "0.50.0",
+	"index_version": 12,
+	"start_time": "Thu Feb 20 15:39:44 2025",
+	"call": "/Users/lluebber/Downloads/kallisto/build/src/kallisto bus -i virus_index.idx -o palmdb/SRR18496014/ -x SPLIT-Seq -t 11 --aa SRR18496014_1.fastq.gz SRR18496014_2.fastq.gz",
+	"n_frame_clashes": 1533029
+}
