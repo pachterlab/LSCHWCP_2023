@@ -1,16 +1,18 @@
-# Efficient and accurate detection of viral sequences at single-cell resolution reveals novel viruses perturbing host gene expression
+# Detection of viral sequences at single-cell resolution identifies novel viruses associated with host gene expression changes
 
 This repository contains data, code, and figures generated for the manuscript:
 ```
-Laura Luebbert, Delaney K Sullivan, Maria Carilli, Kristján Eldjárn Hjörleifsson, Alexander Viloria Winnett, Tara Chari, Lior Pachter (2023). [Efficient and accurate detection of viral sequences at single-cell resolution reveals novel viruses perturbing host gene expression](https://www.biorxiv.org/content/10.1101/2023.12.11.571168). bioRxiv 2023.12.11.571168; doi: https://doi.org/10.1101/2023.12.11.571168
+Laura Luebbert, Delaney K Sullivan, Maria Carilli, Kristján Eldjárn Hjörleifsson, Alexander Viloria Winnett, Tara Chari, Lior Pachter. Detection of viral sequences at single-cell resolution identifies novel viruses associated with host gene expression changes. Nat Biotechnol (2025). doi: https://doi.org/10.1038/s41587-025-02614-y
 ```
-The preprint is posted on the bioRxiv: [https://www.biorxiv.org/content/10.1101/2023.12.11.571168](https://www.biorxiv.org/content/10.1101/2023.12.11.571168)
+Read the manuscript here: [https://www.nature.com/articles/s41587-025-02614-y](https://www.nature.com/articles/s41587-025-02614-y)
 
 > 💡 **General tutorials with example data can be found on the [kallisto bustools](https://kallisto.readthedocs.io/en/latest/) website:**  
 > - [Detecting viral sequences in bulk RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_bulk.html)  
 > - [Detecting viral sequences in single-cell RNA sequencing data](https://kallisto.readthedocs.io/en/latest/translated/notebooks/virus_detection_sc.html)
 
-When interpreting the presence of RdRP-like sequences / virus IDs, keep in mind that there will likely be many RdRP-like sequences introduced by contamination of laboratory reagents. A (non-comprehensive) list of **virus IDs observed in blank sequencing data** is available [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/viruses_in_blank_reagents/total_raw_count_per_virus_id_in_laboratory_reagents.csv).  
+When interpreting the presence of RdRP-like sequences / virus IDs, keep in mind that:   
+(1) there will likely be many RdRP-like sequences introduced by contamination of laboratory reagents. A (non-comprehensive) list of **virus IDs observed in blank sequencing data** is available [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/viruses_in_blank_reagents/total_raw_count_per_virus_id_in_laboratory_reagents.csv).  
+(2) PalmDB is an uncurated database of viral RNA-dependent RNA polymerase (RdRP) sequences, primarily derived from metagenomic sources. Consequently, some entries may originate from non-viral sources or represent host-derived sequences. We provide example code demonstrating methods for the masking of host sequences and the subsequent extraction and BLAST analysis of the identified reads.  
 
 The [Notebooks](https://github.com/pachterlab/LSCHWCP_2023/tree/main/Notebooks) folder contains notebooks to reproduce all of our analyses, starting with pre-processing of the raw data all the way to final figure generation. The notebooks are organized by figure (based on the bioRxiv preprint) and immediately executable via Google Colab.  
 
