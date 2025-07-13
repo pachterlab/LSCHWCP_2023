@@ -43,16 +43,17 @@ pip install kb-python gget
 kb ref \
     --aa \
     -k 55 \
-    --d-list $(gget ref --ftp -w dna,cdna homo_sapiens) \
+    --d-list $(gget ref --ftp -w dna,cdna homo_sapiens) \   # Specify your host species here, e.g. 'homo_sapiens'
     -i index.idx --workflow custom \
-    palmdb_rdrp_seqs.fa
+    palmdb_rdrp_seqs.fa               # You can find 'palmdb_rdrp_seqs.fa' here: github.com/pachterlab/LSCHWCP_2023/blob/main/PalmDB/palmdb_rdrp_seqs.fa
     
 # 4. Align sequencing reads
 # Single-thread runtime: 1.5 min / 1 million sequences; Max RAM: 2.1 GB
 kb count \
     --aa \
     -k 55 \
-    -i index.idx -g palmdb_clustered_t2g.txt \
+    -i index.idx \
+    -g palmdb_clustered_t2g.txt \    # You can find 'palmdb_clustered_t2g.txt' here: github.com/pachterlab/LSCHWCP_2023/blob/main/PalmDB/palmdb_clustered_t2g.txt
     --parity single \
     -x default \
     $USER_DATA.fastq.gz
