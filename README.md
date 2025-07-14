@@ -47,7 +47,7 @@ mkdir -p host_mask && mv *dna* *cdna* host_mask
 kb ref \
     --aa \
     -k 55 \
-    --d-list host_mask/* \
+    --d-list $(echo host_mask/* | tr ' ' ',') \
     -i index.idx \
     --workflow custom \
     palmdb_rdrp_seqs.fa
