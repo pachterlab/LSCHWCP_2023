@@ -40,11 +40,14 @@ wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmd
 # 3. Create reference index (+ optional masking of the host, here human, genome using the D-list)
 # Single-thread runtime: 1.5 h; Max RAM: 4.4 GB; Size of generated index: 593 MB
 # Without D-list: Single-thread runtime: 3.5 min; Max RAM: 3.9 GB; Size of generated index: 592 MB
-# Specify your host species here, e.g. 'homo_sapiens'
+# Specify your host species here, e.g. 'homo_sapiens' (to skip masking, simply omit the --d-list argument and the gget and mkdir commands)
+gget ref -d -w dna,cdna homo_sapiens
+mkdir -p host_mask && mv *dna* *cdna* host_mask
+
 kb ref \
     --aa \
     -k 55 \
-    --d-list $(gget ref --ftp -w dna,cdna homo_sapiens | tr '\n' ',') \
+    --d-list host_mask/* \
     -i index.idx \
     --workflow custom \
     palmdb_rdrp_seqs.fa
