@@ -33,27 +33,29 @@ A description of kallisto, bustools, and kb-python including tutorials for their
 # 1. Install kb-python (optional: install gget to fetch the host genome and transcriptome)
 pip install kb-python gget
 
-# 2. Download optimized PalmDB reference files
-!wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmdb_rdrp_seqs.fa
-!wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmdb_clustered_t2g.txt
+# 2. Download optimized PalmDB reference files ('palmdb_rdrp_seqs.fa' and 'palmdb_clustered_t2g.txt')
+wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmdb_rdrp_seqs.fa
+wget https://raw.githubusercontent.com/pachterlab/LSCHWCP_2023/main/PalmDB/palmdb_clustered_t2g.txt
 
 # 3. Create reference index (+ optional masking of the host, here human, genome using the D-list)
 # Single-thread runtime: 1.5 h; Max RAM: 4.4 GB; Size of generated index: 593 MB
 # Without D-list: Single-thread runtime: 3.5 min; Max RAM: 3.9 GB; Size of generated index: 592 MB
+# Specify your host species here, e.g. 'homo_sapiens'
 kb ref \
     --aa \
     -k 55 \
-    --d-list $(gget ref --ftp -w dna,cdna homo_sapiens) \   # Specify your host species here, e.g. 'homo_sapiens'
-    -i index.idx --workflow custom \
-    palmdb_rdrp_seqs.fa               # You can find 'palmdb_rdrp_seqs.fa' here: github.com/pachterlab/LSCHWCP_2023/blob/main/PalmDB/palmdb_rdrp_seqs.fa
-    
+    --d-list $(gget ref --ftp -w dna,cdna homo_sapiens | tr '\n' ',') \
+    -i index.idx \
+    --workflow custom \
+    palmdb_rdrp_seqs.fa
+
 # 4. Align sequencing reads
 # Single-thread runtime: 1.5 min / 1 million sequences; Max RAM: 2.1 GB
 kb count \
     --aa \
     -k 55 \
     -i index.idx \
-    -g palmdb_clustered_t2g.txt \    # You can find 'palmdb_clustered_t2g.txt' here: github.com/pachterlab/LSCHWCP_2023/blob/main/PalmDB/palmdb_clustered_t2g.txt
+    -g palmdb_clustered_t2g.txt \
     --parity single \
     -x default \
     $USER_DATA.fastq.gz
