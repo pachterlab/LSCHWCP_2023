@@ -12,7 +12,7 @@ Read the manuscript here: [https://www.nature.com/articles/s41587-025-02614-y](h
 
 When interpreting the presence of RdRP-like sequences / virus IDs, keep in mind that:   
 (1) there will likely be many RdRP-like sequences introduced by contamination of laboratory reagents. A (non-comprehensive) list of **virus IDs observed in blank sequencing data** is available [here](https://github.com/pachterlab/LSCHWCP_2023/blob/main/viruses_in_blank_reagents/total_raw_count_per_virus_id_in_laboratory_reagents.csv).  
-(2) PalmDB is an uncurated database of viral RNA-dependent RNA polymerase (RdRP) sequences, primarily derived from metagenomic sources. Consequently, some entries may originate from non-viral sources or represent host-derived sequences. We provide example code demonstrating methods for the masking of host sequences and the subsequent extraction and BLAST analysis of the identified reads.  
+(2) PalmDB is an uncurated database of viral RNA-dependent RNA polymerase (RdRP) sequences, primarily derived from metagenomic sources. Consequently, some entries may originate from non-viral sources or represent host-derived sequences. We provide example code demonstrating methods for the masking of host sequences and the subsequent extraction and **BLAST analysis of the identified raw reads**.   
 
 The [Notebooks](https://github.com/pachterlab/LSCHWCP_2023/tree/main/Notebooks) folder contains notebooks to reproduce all of our analyses, starting with pre-processing of the raw data all the way to final figure generation. The notebooks are organized by figure (based on the bioRxiv preprint) and immediately executable via Google Colab.  
 
